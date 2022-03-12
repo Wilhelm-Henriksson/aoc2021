@@ -1,21 +1,24 @@
+### Part 1: find the first winning board (complete row or col). Find sum of all unmarked numbers from that board, then * last drawn num
 f = open('puzzle_input.txt', 'r')
 pool = [int(x) for x in f.readline().split(",")]
-#draws = [pool[i:i+5] for i in range(0, len(pool), 5)]
 lines = []
 for i, line in enumerate(f): 
-    if i >= 1: 
-        lines.append(line.strip())
+    if i >= 1 and line: 
+        lines.append(line.split())
 
-lines = list(filter(None, lines))
-boards = [lines[i:i+5] for i in range(0, len(lines), 5)]
+not_drawn: set[int]
+boards = list(filter(None, lines))
 
-for i in range(len(boards)): 
-    for j in range(len(boards[i])):
-        pass
-#while no_winner: 
-   # pass
-print(boards[0][3])
 
-def no_winner():
+for row in range(len(boards)):
+    for col in range(len(boards[row])): 
+            int(boards[row][col])
+
+for d in pool:
+    for row in range(len(boards)):
+        for board in range(len(boards[row])): 
+            not_drawn.discard(d)
+
+def winner():
     pass
 
